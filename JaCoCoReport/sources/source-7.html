@@ -1,0 +1,156 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Window</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">&lt;empty package name&gt;</a>
+</div>
+
+<h1>Coverage Summary for Class: Window (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Window</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (18/18)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;import javax.swing.*;
+<i class="no-highlight">2</i>&nbsp;import java.awt.*;
+<i class="no-highlight">3</i>&nbsp;import java.util.ArrayList;
+<i class="no-highlight">4</i>&nbsp;
+<i class="no-highlight">5</i>&nbsp;
+<i class="no-highlight">6</i>&nbsp;class Window extends JFrame{
+<i class="no-highlight">7</i>&nbsp;	private static final long serialVersionUID = -2542001418764869760L;
+<i class="no-highlight">8</i>&nbsp;	public static ArrayList&lt;ArrayList&lt;DataOfSquare&gt;&gt; Grid;
+<b class="fc"><i class="no-highlight">9</i>&nbsp;	public static int width = 20;</b>
+<b class="fc"><i class="no-highlight">10</i>&nbsp;	public static int height = 20;</b>
+<b class="fc"><i class="no-highlight">11</i>&nbsp;	public Window(){</b>
+<i class="no-highlight">12</i>&nbsp;		
+<i class="no-highlight">13</i>&nbsp;		
+<i class="no-highlight">14</i>&nbsp;		// Creates the arraylist that&#39;ll contain the threads
+<b class="fc"><i class="no-highlight">15</i>&nbsp;		Grid = new ArrayList&lt;&gt;();</b>
+<i class="no-highlight">16</i>&nbsp;		ArrayList&lt;DataOfSquare&gt; data;
+<i class="no-highlight">17</i>&nbsp;		
+<i class="no-highlight">18</i>&nbsp;		// Create Threads and its data and adds it to the arrayList
+<b class="fc"><i class="no-highlight">19</i>&nbsp;		for(int i=0;i&lt;width;i++){</b>
+<b class="fc"><i class="no-highlight">20</i>&nbsp;			data= new ArrayList&lt;&gt;();</b>
+<b class="fc"><i class="no-highlight">21</i>&nbsp;			for(int j=0;j&lt;height;j++){</b>
+<b class="fc"><i class="no-highlight">22</i>&nbsp;				DataOfSquare c = new DataOfSquare(2);</b>
+<b class="fc"><i class="no-highlight">23</i>&nbsp;				data.add(c);</b>
+<i class="no-highlight">24</i>&nbsp;			}
+<b class="fc"><i class="no-highlight">25</i>&nbsp;			Grid.add(data);</b>
+<i class="no-highlight">26</i>&nbsp;		}
+<i class="no-highlight">27</i>&nbsp;		
+<i class="no-highlight">28</i>&nbsp;		// Setting up the layout of the panel
+<b class="fc"><i class="no-highlight">29</i>&nbsp;		getContentPane().setLayout(new GridLayout(20,20,0,0));</b>
+<i class="no-highlight">30</i>&nbsp;		
+<i class="no-highlight">31</i>&nbsp;		// Start &amp; pauses all threads, then adds every square of each thread to the panel
+<b class="fc"><i class="no-highlight">32</i>&nbsp;		for(int i=0;i&lt;width;i++){</b>
+<b class="fc"><i class="no-highlight">33</i>&nbsp;			for(int j=0;j&lt;height;j++){</b>
+<b class="fc"><i class="no-highlight">34</i>&nbsp;				getContentPane().add(Grid.get(i).get(j).square);</b>
+<i class="no-highlight">35</i>&nbsp;			}
+<i class="no-highlight">36</i>&nbsp;		}
+<i class="no-highlight">37</i>&nbsp;		
+<i class="no-highlight">38</i>&nbsp;		// initial position of the snake
+<b class="fc"><i class="no-highlight">39</i>&nbsp;		Tuple position = new Tuple(10,10);</b>
+<i class="no-highlight">40</i>&nbsp;		// passing this value to the controller
+<b class="fc"><i class="no-highlight">41</i>&nbsp;		ThreadsController c = new ThreadsController(position);</b>
+<i class="no-highlight">42</i>&nbsp;		//Let&#39;s start the game now.
+<b class="fc"><i class="no-highlight">43</i>&nbsp;		c.start();</b>
+<i class="no-highlight">44</i>&nbsp;
+<i class="no-highlight">45</i>&nbsp;		// Links the window to the keyboardist&#39;s.
+<b class="fc"><i class="no-highlight">46</i>&nbsp;		this.addKeyListener(new KeyboardListener());</b>
+<i class="no-highlight">47</i>&nbsp;
+<i class="no-highlight">48</i>&nbsp;		//To do : handle multiplayer . The above works, test it and see what happens
+<i class="no-highlight">49</i>&nbsp;
+<i class="no-highlight">50</i>&nbsp;	}
+<i class="no-highlight">51</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2021-10-09 17:02</div>
+</div>
+</body>
+</html>
